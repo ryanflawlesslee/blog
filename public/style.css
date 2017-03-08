@@ -1,0 +1,21 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+hr{
+    width: 40%;
+}
+
+h1{
+    text-align: center;
+}
+
+.margin {
+    margin-top: 5%;
+    background-color: #F0FFFF;
+}
+
+p {
+  margin-left: 100px;
+  margin-right: 100px;
+}

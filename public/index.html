@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="blogapp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+    <script src="app.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">
+                    MBlog
+                </a>
+            </div>
+            </div>
+    </nav>
+
+
+    <div class="container" ng-controller="blogController">
+        <div class="container">
+        <h1>MEAN stack blog</h1>
+        <hr><br>
+            <form method="post">
+                <div class="form-group">
+                    <label for="title">Title of your post:</label>
+                    <input ng-model="post.title" class="form-control" type="text" placeholder="Title" name="title">
+                </div>
+                <div class="form-group">
+                    <label for="body">Something in mind:</label>
+                    <textarea ng-model="post.body" class="form-control" placeholder="Body" cols="30" rows="10" name="body"></textarea>
+                </div>
+            </form>
+                <div class="row">
+                    <div class="col-xs-6">
+                        <button ng-click="createPost(post)" class="btn btn-primary btn-lg btn-block">POST</button>
+                    </div>
+                    <div class="col-xs-6">
+                        <button ng-click="updatePost(post)" class="btn btn-success btn-lg btn-block btn-bottom">UPDATE</button>
+                    </div>
+                </div>
+            <br>
+                <div ng-repeat="post in posts" class="margin">
+                    <h2>
+                        {{ post.title }}
+                        <a ng-click="deletePost(post._id)" class="pull-right"><span class="glyphicon glyphicon-trash btn btn-md"></span></a>
+                        <a ng-click="editPost(post._id)" class="pull-right"><span class="glyphicon glyphicon-pencil btn btn-md"></span></a>
+                    </h2>
+                    <em>{{ post.posted }}</em>
+                    <br>
+                    <p>{{ post.body }}</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
